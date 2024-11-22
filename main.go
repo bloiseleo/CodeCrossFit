@@ -3,20 +3,18 @@ package main
 import (
 	"fmt"
 
-	"github.com/bloiseleo/CodeCrossFit/datastructures/arrays"
+	"github.com/bloiseleo/CodeCrossFit/datastructures/linkedlist"
 )
 
 func main() {
-	arr := arrays.CreateDyanmicArray()
-	for i := 0; i < 11; i++ {
-		arr.Append(i)
+	linkedList := linkedlist.LinkedList()
+	for i := 0; i < 2; i++ {
+		linkedList.Append(&linkedlist.LinkedListNode{
+			Value: i,
+		})
 	}
-	arr.Delete(7)
-	fmt.Println("Tamanho", arr.Length())
-	arr.Delete(7)
-	fmt.Println("Tamanho", arr.Length())
-	for i := 0; i < arr.Length(); i++ {
-		staticArr := arr.ToStaticArray()
-		fmt.Println(staticArr[i])
-	}
+	linkedList.Delete(1)
+	linkedList.Delete(0)
+	arr := linkedList.ToArray()
+	fmt.Println(arr...)
 }
